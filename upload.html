@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Dataset</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js"></script>
+</head>
+<body>
+
+<div class="page-container">
+
+    <!-- HEADER -->
+    <div class="top-header">
+        <h1>Data Analysis Dashboard</h1>
+        <p>Upload your dataset and generate insights & charts</p>
+    </div>
+
+    <!-- UPLOAD -->
+    <div class="upload-card">
+        <h2>Upload Dataset</h2>
+
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+            <input type="file" name="file" required>
+            <button type="submit">Analyze</button>
+        </form>
+    </div>
+
+    {% if columns %}
+
+    <!-- FIELDS -->
+    <div class="card">
+        <h3>Dataset Fields</h3>
+        <div class="tags">
+            {% for c in columns %}
+            <span class="tag">{{c}}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- INSIGHTS -->
+    <div class="card">
+        <h3>Key Insights</h3>
+        <ul>
+            {% for i in insights.split('\n') %}
+            {% if i.strip() %}
+            <li>{{i}}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="card">
+        <h3>Auto Charts</h3>
+        <div class="chart-grid">
+            {% for c in charts %}
+            <img src="/{{c}}">
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- CUSTOM CHART -->
+    <div class="card big-card">
+        <h3>Create Custom Chart</h3>
+
+        <form id="chartForm" class="chart-form">
+
+            <div class="form-group">
+                <label>X Axis</label>
+                <select name="col1">
+                    {% for c in columns %}
+                    <option>{{c}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Y Axis</label>
+                <select name="col2">
+                    {% for c in columns %}
+                    <option>{{c}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Chart Type</label>
+                <select name="chart">
+                    <option value="bar">Bar</option>
+                    <option value="line">Line</option>
+                    <option value="pie">Pie</option>
+                    <option value="scatter">Scatter</option>
+                    <option value="hist">Histogram</option>
+                </select>
+            </div>
+
+            <button type="button" onclick="createChart()">Generate Chart</button>
+        </form>
+
+        <div class="chart-result">
+            <img id="customChart">
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<!-- SIMPLE CHATBOT -->
+<div class="chatbox">
+    <div id="chatBox"></div>
+
+    <div class="chat-input">
+        <input id="chatInput" placeholder="Ask...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+</body>
+</html>
