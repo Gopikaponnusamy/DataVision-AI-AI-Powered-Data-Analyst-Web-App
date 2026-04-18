@@ -9,27 +9,38 @@ DataVision AI is a Flask-based web application that simplifies data analysis for
 It automatically processes datasets, generates visualizations, and provides AI-powered insights using a local LLM.
 
 ✨ Features
-* Simple Login System
-* Upload CSV / Excel datasets
-* Automatic chart generation (Bar, Line, Pie, Scatter, Histogram)
-* AI-generated key insights (5 bullet points)
-* Custom chart creation (choose columns + chart type)
-*  Built-in chatbot to query dataset
-*  Displays dataset fields dynamically
-*  Modern responsive UI
-Tech Stack
+🔐 Simple Login System
+📂 Upload CSV / Excel datasets
+📊 Automatic chart generation (Bar, Line, Pie, Scatter, Histogram)
+🧠 AI-generated key insights (5 bullet points)
+🎯 Custom chart creation (choose columns + chart type)
+🤖 Built-in chatbot to query dataset
+📌 Displays dataset fields dynamically
+🎨 Modern responsive UI
+🛠️ Tech Stack
+
 Frontend
+
 HTML
 CSS
 JavaScript
+
 Backend
+
 Flask (Python)
+
 Data Processing
+
 Pandas
+
 Visualization
+
 Matplotlib
+
 AI Integration
-Project Structure
+
+Ollama (Local LLM)
+🏗️ Project Structure
 project/
 │── app.py
 │── data_analyzer.py
@@ -48,7 +59,6 @@ project/
 ├── uploads/
 │
 └── requirements.txt
-
 ⚙️ Installation & Setup
 1️⃣ Clone the repository
 git clone https://github.com/your-username/datavision-ai.git
@@ -60,8 +70,11 @@ pip install -r requirements.txt
 Make sure Ollama is installed and running:
 
 ollama run llama3
-
-*Workflow
+4️⃣ Run the application
+python app.py
+5️⃣ Open in browser
+http://127.0.0.1:5000
+🔄 Workflow
 User logs in
 Uploads dataset (CSV/Excel)
 System processes data using Pandas
@@ -69,7 +82,6 @@ Charts are generated using Matplotlib
 AI generates insights using Ollama
 Dashboard displays results
 User interacts using chatbot or custom charts
-Ollama (Local LLM)
 
 AI Capabilities
 Prompt-based insight generation
@@ -87,8 +99,7 @@ Data analysis for beginners
 Academic projects
 Quick business insights
 Exploratory Data Analysis (EDA)
-
- Author
+Author
 
 Gopika
 AI & Data Analytics Enthusiast
